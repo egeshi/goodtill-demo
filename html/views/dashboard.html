@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-3">
+        <h1>{{ storeName }}</h1>
+        <div id="DateDropdown" ng-controller="DropdownController">
+    <span uib-dropdown on-toggle="toggled(open)" dropdown-append-to="appendToEl">
+      <a href id="simple-dropdown" uib-dropdown-toggle>
+        Click to select date range
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+        <li ng-repeat="item in items">
+          <a href ng-click="rangeSelected(item)">{{ item }}</a>
+        </li>
+      </ul>
+    </span>
+        </div>
+    </div>
+
+    <section ng-hide="!selectedDate" class="col-sm-9">
+        <div ng-hide="allSales">
+            <h5>Please wait...</h5>
+        </div>
+        <div ng-show="allSales">
+            <div class="card col-sm-9">
+                <h4>{{ allSales.message }}</h4>
+                <div class="card-body">
+                    <p class="card-title nosales" ng-show="!summary.total_items_amt">Store made no sales in specified period.</p>
+                    <div ng-hide="!summary.total_items_amt">
+                        <p class="card-title">{{ selectedDateText }} {{ summary.total_amt }} sales generated {{ summary.total_money }} money units while sold {{ summary.total_items_amt }} items.</p>
+                        <h4>Averages:</h4>
+                        <p>{{ summary.avg_items_per_sale }} average amount of items per sale</p>
+                        <p>Average monetary amount per sale is {{ summary.avg_money_per_sale }} money units.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,36 @@
+/**
+ * @author: Anton Repin <antony@lehcode.com>
+ */
+#loginForm h1,
+#loginForm .form-group.submit,
+h1.title {
+    text-align: center;
+}
+
+ui-view.ng-scope {
+    height: 100vh;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.form-group {
+    flex-direction: row;
+}
+
+.container-fluid > section {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#LoginForm {
+    justify-content: center;
+    align-content: center;
+}
+
+#loginForm .submit .input-group {
+    display: flex;
+    justify-content: center;
+}
+
